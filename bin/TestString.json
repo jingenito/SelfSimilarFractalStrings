@@ -1,0 +1,90 @@
+{
+    "Resolution": 100,
+    "Tier": 2,
+    "ScalingRatios": [
+        {
+            "Type": 0,
+            "Value": 0.25
+        },
+        {
+            "Type": 1,
+            "Value": 0.25
+        },
+        {
+            "Type": 0,
+            "Value": 0.25
+        },
+        {
+            "Type": 1,
+            "Value": 0.25
+        }
+    ],
+    "Iterations": [
+        [
+            {
+                "Type": 0,
+                "Value": 100
+            }
+        ],
+        [
+            {
+                "Type": 0,
+                "Value": 25.0
+            },
+            {
+                "Type": 1,
+                "Value": 25.0
+            },
+            {
+                "Type": 0,
+                "Value": 25.0
+            },
+            {
+                "Type": 1,
+                "Value": 25.0
+            }
+        ],
+        [
+            {
+                "Type": 0,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 6.25
+            },
+            {
+                "Type": 0,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 25.0
+            },
+            {
+                "Type": 0,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 6.25
+            },
+            {
+                "Type": 0,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 6.25
+            },
+            {
+                "Type": 1,
+                "Value": 25.0
+            }
+        ]
+    ]
+}

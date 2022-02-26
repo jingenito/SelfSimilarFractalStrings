@@ -4,13 +4,12 @@
 #               scaling ratios and gaps. 
 
 from TypeModule import FractalScalingType as fsType, ScalingRatio
-import Util.JSONSerializer as JSON
 import numpy as np
 
 class SelfSimilarFractalString:
     """A class that represents a self similar fractal string."""
 
-    def __init__(self, resolution : int, tier : int, scalingRatios : list) :
+    def __init__(self, resolution : int, tier : int, scalingRatios : list, _generate_newString = True) :
         #Validate scalingRatios
         sum = 0
         for x in scalingRatios :
@@ -24,15 +23,22 @@ class SelfSimilarFractalString:
             return
         #set properties
         self.Resolution, self.Tier, self.ScalingRatios = resolution, tier, scalingRatios
-        self._build_StringIterations()
+        if _generate_newString : self._build_StringIterations()
 
-    #Will revisit this later
     # @classmethod
     # def fromJSON(cls, filename) :
     #     fs_data = JSON.DeserializeJSON(filename)
     #     x = cls(fs_data['Resolution'],fs_data['Tier'],fs_data['ScalingRatios'],False)
     #     x.Iterations = fs_data['Iterations']
     #     return x
+
+    #these methods are for pickling and unpickling ###################
+    def __getstate__(self):
+        return self.__dict__
+
+    def __setstate__(self, d):
+        self.__dict__ = d
+    ##################################################################
 
     def _build_StringIterations(self) :
         """Internal."""

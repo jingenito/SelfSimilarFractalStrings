@@ -3,14 +3,14 @@
 #   Description: A module that computes images of self similar fractal strings. 
 
 from SimilarFractalString import SelfSimilarFractalString as SSFS
-from TypeModule import ResolutionType as rType
 from Util import BinarySearch, ImageMods as ImMods
-from PIL import Image
+
+RESOLUTION_Y = 1000
 
 def CreateFractalStringImage(fractalString : SSFS, rowRange : tuple, filename : str) :
     """Use this method to create an image representation of the specified Fractal String."""
     fstring, bit_array = fractalString.GetMaxFractalString(), []
-    for y in range(fractalString.Resolution) :
+    for y in range(RESOLUTION_Y) :
         bit_array.append([])
         for x in range(fractalString.Resolution) :
             if y >= rowRange[0] and y <= rowRange[1] :

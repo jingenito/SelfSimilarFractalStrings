@@ -9,7 +9,11 @@ import numpy as np
 class SelfSimilarFractalString:
     """A class that represents a self similar fractal string."""
 
-    def __init__(self, resolution : int, tier : int, scalingRatios : list, _generate_newString = True) :
+    def __init__(self, resolution : int, tier : int, scalingRatios : list) :
+        #Validate Resolution/Tier
+        if resolution <= 0 or tier <= 0 :
+            print('Either resolution or tier is not positive.')
+            return
         #Validate scalingRatios
         sum = 0
         for x in scalingRatios :
@@ -23,7 +27,7 @@ class SelfSimilarFractalString:
             return
         #set properties
         self.Resolution, self.Tier, self.ScalingRatios = resolution, tier, scalingRatios
-        if _generate_newString : self._build_StringIterations()
+        self._build_StringIterations()
 
     # @classmethod
     # def fromJSON(cls, filename) :

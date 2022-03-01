@@ -80,10 +80,10 @@ class SelfSimilarFractalString:
         else:
             for sRatio in self.Iterations[iteration]:
                 if sRatio.Type == fsType.Ratio :
-                    max += int(np.ceil(sRatio.Value))
+                    max += int(np.floor(sRatio.Value))
                 elif sRatio.Type == fsType.Gap :
                     #For the Fractal String we keep the gaps, not the ratios
-                    next_max = max + int(np.ceil(sRatio.Value))
+                    next_max = max + int(np.floor(sRatio.Value))
                     fstring.extend(range(max, next_max + 1))
                     max = next_max
         return fstring

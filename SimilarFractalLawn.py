@@ -3,7 +3,7 @@
 #   Description: Contains a class that represents a Self Similar Fractal Lawn, defined using
 #               the SelfSimilarFractalString class. 
 
-from SimilarFractalString import SelfSimilarFractalString as SSFS
+from SimilarFractalString import SelfSimilarFractalString as FString, CantorString as CString
 import numpy as np
 
 class SelfSimilarFractalLawn:
@@ -14,7 +14,7 @@ class SelfSimilarFractalLawn:
         #Validate fractalStrings
         for i in range(len(fractalStrings)) :
             string = fractalStrings[i]
-            if type(string) != SSFS :
+            if not issubclass(type(string),FString) :
                 print("An element of fractalStrings is not a SelfSimilarFractalString.")
                 return
             else: self.FractalStrings[i] = string #setting the dimensions in the order that they are listed
@@ -52,3 +52,9 @@ class SelfSimilarFractalLawn:
 
     def GetMaxTierFractalLawn(self, dimensions : tuple) -> list :
         return self.GetFractalLawn(self.Tier, dimensions)
+
+class CantorLawn(SelfSimilarFractalLawn) :
+    """A class that represents the Cantor Lawn in N dimensions."""
+    
+    def __init__(self, resolution : tuple, tier : int, N : int) : 
+        SelfSimilarFractalLawn.__init__(self, list(map(lambda x: CString(resolution[x],tier), range(N))))

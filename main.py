@@ -1,15 +1,15 @@
-from SimilarFractalString import SelfSimilarFractalString as FString
-from SimilarFractalLawn import SelfSimilarFractalLawn as FLawn
-from TypeModule import ScalingRatio as SRatio, FractalScalingType as fsType
-import Util.SerializationModule as SerMod
 import FractalImages
+from SimilarFractalString import CantorString as CString
 
-theRatios = [SRatio(fsType.Ratio,1.0/3.0),
-             SRatio(fsType.Gap,1.0/3.0),
-             SRatio(fsType.Ratio,1.0/3.0)]
-fractalStrings = [FString(1920,4,theRatios),
-                  FString(1080,4,theRatios)]
-cLawn = FLawn(fractalStrings)
-picklefile = 'bin/CantorLawnPickle'
-SerMod.PickleData(cLawn,picklefile)
-FractalImages.VisualizePickle(picklefile,'Images/CantorLawn4.png')
+print('Welcome to the Fractal Image Library')
+print('1) Cantor String Image')
+print('2) Cantor Lawn Image')
+inp = input('Select an image to create: ')
+
+if inp.isnumeric() :
+    mode = int(inp)
+
+if mode == 1 :
+    FractalImages.CreateCantorStringImage((1000,200),(90,110),4)
+elif mode == 2:
+    FractalImages.CreateCantorLawnImage((1000,1000),4)

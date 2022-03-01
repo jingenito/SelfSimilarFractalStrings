@@ -91,4 +91,15 @@ class SelfSimilarFractalString:
     def GetMaxFractalString(self) -> list :
         """Use this method to get the Fractal String from the maximum iteration."""
         return self.GetFractalString(self.Tier)
-                    
+
+class CantorString(SelfSimilarFractalString) :
+    """A class that represents the CantorString by inheriting SelfSimilarFractalString."""
+
+    def __init__(self, resolution : int, tier : int) :
+        SelfSimilarFractalString.__init__(self, 
+                                        resolution,
+                                        tier,
+                                        [ScalingRatio(fsType.Ratio, 1.0/3.0),
+                                        ScalingRatio(fsType.Gap, 1.0/3.0),
+                                        ScalingRatio(fsType.Ratio, 1.0/3.0)])
+        
